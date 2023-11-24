@@ -1,0 +1,16 @@
+<launch>
+    <!-- Launch Turtlebot3 Gazebo Simulation -->
+    <include file="$(find-pkg-share turtlebot3_gazebo)/launch/turtlebot3_world.launch.py"/>
+
+    <!-- Launch Navigation2 -->
+    <!-- <include file="$(find-pkg-share tsk)/launch/tsk_nav2.launch.py"/> -->
+
+    <!-- Run tsk machine_command in a new terminal-->
+    <include file="$(find-pkg-share tsk)/launch/machine_command.launch.py"/>
+
+    <!-- Run tsk transport -->
+    <include file="$(find-pkg-share tsk)/launch/transport.launch.py"/>
+    <!-- <node pkg="tsk" exec="transport" name="transport" output="screen"/> -->
+</launch>
+
+

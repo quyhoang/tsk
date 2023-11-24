@@ -39,7 +39,8 @@ class MachineCommand(Node):
                 key = self.read_keyboard_input()
                 if key in ['a', 'b', 'c', 'o']:
                     self.publish_message(key)
-                if key == 'x':
+                # terminate, quite, exit
+                if key in ['x', 'q', 'e', 't']:
                     break
         except Exception as e:
             self.get_logger().error('Error in MachineCommand: %r' % (e,))
