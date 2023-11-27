@@ -27,6 +27,8 @@ setup(
     entry_points={
         'console_scripts': [
             "machine_command = tsk.machine_command:main",
+            "opcua_client = tsk.opcua_client:main",
+            "opcua_continuous = tsk.opcua_continuous:main",
             "transport = tsk.transport:main"
         ],
     },

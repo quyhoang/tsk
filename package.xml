@@ -12,6 +12,9 @@
   <depend>nav2_simple_commander</depend>
   <depend>geometry_msgs</depend>
   <depend>std_msgs</depend>
+  <depend>opcua</depend>
+  <depend>asyncio</depend>
+  <depend>asyncua</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
