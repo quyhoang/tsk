@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+
+"""
+Author: Quy Hoang
+Date Started: Nov 22, 2023
+
+This script defines a ROS2 node responsible for handling robot navigation. Upon receiving a destination command via the 'destination' topic, the node computes and navigates the robot to predefined positions. Utilizing the BasicNavigator from the `nav2_simple_commander`, it translates string messages ('a', 'b', 'c', 'o') into corresponding spatial goals.
+"""
+
+
 import rclpy
 from rclpy.node import Node
 from nav2_simple_commander.robot_navigator import BasicNavigator

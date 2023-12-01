@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+
+"""
+Author: Quy Hoang
+Date Started: Nov 22, 2023
+
+Description:
+This script defines the 'MachineCommand' node, which reads keyboard inputs and publishes them to the '/destination' topic. It is primarily used for sending simple control commands ('a', 'b', 'c', 'o') to a robot. The node remains active until it receives an exit command ('x', 'q', 'e', 't'). This setup allows for easy and direct control of robotic systems via keyboard inputs.
+"""
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
