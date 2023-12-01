@@ -23,9 +23,14 @@ class TransportNode(Node):
 
         # Define goal poses
         self.goals = {
-            'a': self.create_pose_stamped(3.5, 1.0, 1.57),
-            'b': self.create_pose_stamped(2.0, 2.5, 3.14),
-            'c': self.create_pose_stamped(0.5, 1.0, 0.0),
+            # 'a': self.create_pose_stamped(3.5, 1.0, 1.57),
+            # 'b': self.create_pose_stamped(2.0, 2.5, 3.14),
+            # 'c': self.create_pose_stamped(0.5, 1.0, 0.0),
+            # 'o': self.create_pose_stamped(0.0, 0.0, 0.0)
+
+            'a': self.create_pose_stamped(1.4, -0.5, 1.57),
+            'b': self.create_pose_stamped(1.5, 0.5, 3.14),
+            'c': self.create_pose_stamped(0.6, -0.6, 4.7),
             'o': self.create_pose_stamped(0.0, 0.0, 0.0)
         }
 
