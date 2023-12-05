@@ -17,7 +17,7 @@ def generate_launch_description():
         default=os.path.join(
             get_package_share_directory('tsk'),
             'maps',
-            'map1.yaml'))
+            'map2911.yaml'))
 
     param_file_name = TURTLEBOT3_MODEL + '.yaml'
     param_dir = LaunchConfiguration(
