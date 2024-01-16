@@ -53,7 +53,7 @@ class OpcuaContinuousClient(Node):
 
     # Asynchronous method to continuously fetch data from OPC UA server
     async def continuous_opc(self):
-        url = 'opc.tcp://192.168.11.1:4840' #Connect OPC UA server
+        url = 'opc.tcp://192.168.2.10:4840' #Connect OPC UA server
                                             #opc.tcp://PLC IP ADDRESS:4840
         async with Client(url = url) as client:
             while True:

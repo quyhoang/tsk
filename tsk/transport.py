@@ -4,7 +4,12 @@
 Author: Quy Hoang
 Date Started: Nov 22, 2023
 
-This script defines a ROS2 node responsible for handling robot navigation. Upon receiving a destination command via the 'destination' topic, the node computes and navigates the robot to predefined positions. Utilizing the BasicNavigator from the `nav2_simple_commander`, it translates string messages ('a', 'b', 'c', 'o') into corresponding spatial goals.
+This script defines a ROS2 node responsible for handling robot navigation. 
+Upon receiving a destination command via the 'destination' topic, 
+the node computes and navigates the robot to predefined positions. 
+
+Utilizing the BasicNavigator from the `nav2_simple_commander`, 
+it translates string messages ('a', 'b', 'c', 'o') into corresponding spatial goals.
 """
 
 
@@ -25,22 +30,35 @@ class TransportNode(Node):
         self.subscription  # prevent unused variable warning
         self.navigator = BasicNavigator()
 
-        initial_pose = self.create_pose_stamped(0.0, 0.0, 0.0)
+        # Demo
+        # initial_pose = self.create_pose_stamped(0.3155857, 0.1581151, 0.0)
+        # Experiment room
+        initial_pose = self.create_pose_stamped(0.0, 1.1, 0.0)
+
         self.navigator.setInitialPose(initial_pose)
         
         self.navigator.waitUntilNav2Active()
 
         # Define goal poses
         self.goals = {
+            # simulation
             # 'a': self.create_pose_stamped(3.5, 1.0, 1.57),
             # 'b': self.create_pose_stamped(2.0, 2.5, 3.14),
             # 'c': self.create_pose_stamped(0.5, 1.0, 0.0),
             # 'o': self.create_pose_stamped(0.0, 0.0, 0.0)
 
-            'a': self.create_pose_stamped(1.4, -0.5, 1.57),
-            'b': self.create_pose_stamped(1.5, 0.5, 3.14),
-            'c': self.create_pose_stamped(0.6, -0.6, 4.7),
-            'o': self.create_pose_stamped(0.0, 0.0, 0.0)
+            # demo
+            # 'a': self.create_pose_stamped(1.4, -0.5, 0),
+            # 'b': self.create_pose_stamped(1.5, 0.5, 3.1415926),
+            # 'c': self.create_pose_stamped(0.6, -0.6, 3.1415926),
+            # 'o': self.create_pose_stamped(0.31558578182309216, 0.15811518671108113, 0.0)
+
+
+            # Experiment room
+            'a': self.create_pose_stamped(1.225, 0.5, 0.0),
+            'b': self.create_pose_stamped(1.8, 0.78, 0.0),
+            'c': self.create_pose_stamped(1.1, 2.13, 0.0),
+            'o': self.create_pose_stamped(0.0, 1.1, 0.0)
         }
 
     def create_pose_stamped(self, position_x, position_y, rotation_z):
