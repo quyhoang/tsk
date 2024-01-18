@@ -24,14 +24,15 @@ class MachineCommand(Node):
         super().__init__('machine_command')  # Updated node name
         self.publisher_ = self.create_publisher(String, 'destination', 10)  # Updated topic name
         self.settings = termios.tcgetattr(sys.stdin)
-        self.get_logger().info("Machine Command Node Started. Press 'a', 'b', 'c', or 'o' to send a message.")
+        self.get_logger().info("\nMachine Command Node Started. \nPress 'a', 'b', 'c', or 'o' to send a message. \nCtrl C to terminate.")
 
     def publish_message(self, msg):
         message = String()
         message.data = msg
         self.publisher_.publish(message)
-        print("\r",end="") #to start the log at the beginning of a line
+        # print("\r",end="") #to start the log at the beginning of a line
         self.get_logger().info(f"Publishing: '{message.data}'")
+        print("\r",end="") #to start the log at the beginning of a line
 
     def read_keyboard_input(self):
         tty.setraw(sys.stdin.fileno())
@@ -49,7 +50,9 @@ class MachineCommand(Node):
                 if key in ['a', 'b', 'c', 'o']:
                     self.publish_message(key)
                 # terminate, quite, exit
-                if key in ['x', 'q', 'e', 't']:
+                if (key == '\x03'): #Control + C
+                # if key in ['x', 'q', 'e', 't']:
+                    print("\r",end="")
                     break
         except Exception as e:
             self.get_logger().error('Error in MachineCommand: %r' % (e,))

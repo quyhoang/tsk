@@ -24,8 +24,6 @@ class TransportNode(Node):
     def __init__(self):
         super().__init__('transport')  # Renamed node
 
-
-
         self.subscription = self.create_subscription(String,'destination',self.destination_callback,10)
         self.subscription  # prevent unused variable warning
         self.navigator = BasicNavigator()

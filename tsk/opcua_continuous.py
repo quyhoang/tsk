@@ -48,8 +48,8 @@ class OpcuaContinuousClient(Node):
 
         # Publish the message and log the event
         self.publisher_.publish(message)
-        print("\r",end="") #to start the log at the beginning of a line
         self.get_logger().info(f"Publishing: '{message.data}'")
+        print("\r",end="") #to start the log at the beginning of a line
 
     # Asynchronous method to continuously fetch data from OPC UA server
     async def continuous_opc(self):
